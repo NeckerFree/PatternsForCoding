@@ -1,0 +1,12 @@
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\bin\Debug\net7.0\Algorithms.deps.json
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\bin\Debug\net7.0\Algorithms.dll
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\bin\Debug\net7.0\Algorithms.pdb
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.csproj.AssemblyReference.cache
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.AssemblyInfoInputs.cache
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.AssemblyInfo.cs
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.csproj.CoreCompileInputs.cache
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.dll
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\refint\Algorithms.dll
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\Algorithms.pdb
+C:\Elio\Development\Projects\PatternsForCoding\Algorithms\obj\Debug\net7.0\ref\Algorithms.dll
