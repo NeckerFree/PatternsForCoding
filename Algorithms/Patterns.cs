@@ -5,21 +5,21 @@ namespace Algorithms
 {
     public class Patterns
     {
-    //    procedure three-way-partition(A : array of values, mid : value) :
-    //i ← 0
-    //j ← 0
-    //k ← size of A - 1
+        //    procedure three-way-partition(A : array of values, mid : value) :
+        //i ← 0
+        //j ← 0
+        //k ← size of A - 1
 
-    //while j <= k:
-    //    if A[j] < mid:
-    //        swap A[i] and A[j]
-    //        i ← i + 1
-    //        j ← j + 1
-    //    else if A[j] > mid:
-    //        swap A[j] and A[k]
-    //        k ← k - 1
-    //    else:
-    //        j ← j + 1
+        //while j <= k:
+        //    if A[j] < mid:
+        //        swap A[i] and A[j]
+        //        i ← i + 1
+        //        j ← j + 1
+        //    else if A[j] > mid:
+        //        swap A[j] and A[k]
+        //        k ← k - 1
+        //    else:
+        //        j ← j + 1
 
         public static int[] DutchFlag(int[] input)
         {
@@ -61,6 +61,33 @@ namespace Algorithms
                 else pointer2--;
             }
             return new int[] { -1, -1 };
+        }
+
+        public static int TripletSum(int[] input, int target)
+        {
+            int n = input.Length;
+            int count = 0;
+            Array.Sort(input);
+            for (int i = 0; i < n-2; i++)
+            {
+                int left = i + 1;
+                int right = n -1;
+                while (left<right)
+                {
+                    int sum = input[i] + input[left] + input[right];
+                    if (sum >= target)
+                    {
+                        right--;
+                    }
+                    else
+                    {
+                        count =count+(right-left);
+                        left++;
+                    }
+                }
+            }
+            return count;
+
         }
     }
 }
