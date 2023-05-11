@@ -69,6 +69,23 @@ Given a 2D array (i.e., a matrix) containing only 1s (land) and 0s (water), coun
 An island is a connected set of 1s (land) and is surrounded by either an edge or 0s (water). 
 Each cell is considered connected to other cells horizontally or vertically (not diagonally).
 
+> Exercise 4
+Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.
+
+Example 1:
+Intervals: [[1,4], [2,5], [7,9]]
+Output: [[1,5], [7,9]]
+Explanation: Since the first two intervals [1,4] and [2,5] overlap, we merged them into 
+one [1,5].
+
+Example 2:
+Intervals: [[6,7], [2,4], [5,9]]
+Output: [[2,4], [5,9]]
+Explanation: Since the intervals [6,7] and [5,9] overlap, we merged them into one [5,9].
+
+Example 3:
+Intervals: [[1,4], [2,6], [3,5]]
+Output: [[1,6]]
 
 https://www.geeksforgeeks.org/find-the-number-of-islands-using-dfs/
 https://www.designgurus.io/course-play/grokking-the-coding-interview
