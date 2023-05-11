@@ -60,4 +60,15 @@ Example 2:
 
 Input: [-1, 4, 2, 1, 3], target=5 
 Output: 4
-Explanation: There are four triplets whose sum is less than the target:
+Explanation: There are four triplets whose sum is less than the target: [-1, 4, 1],[-1, 2, 1],[-1, 1, 3],[ -1, 2, 3]
+
+> Exercise 3
+
+Given a 2D array (i.e., a matrix) containing only 1s (land) and 0s (water), count the number of islands in it.
+
+An island is a connected set of 1s (land) and is surrounded by either an edge or 0s (water). 
+Each cell is considered connected to other cells horizontally or vertically (not diagonally).
+
+
+https://www.geeksforgeeks.org/find-the-number-of-islands-using-dfs/
+https://www.designgurus.io/course-play/grokking-the-coding-interview
