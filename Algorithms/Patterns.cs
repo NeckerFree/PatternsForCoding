@@ -1,25 +1,55 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 
 namespace Algorithms
 {
     public class Patterns
     {
-        //    procedure three-way-partition(A : array of values, mid : value) :
-        //i ← 0
-        //j ← 0
-        //k ← size of A - 1
+        public static int CountIslandsDFS(int[,] matrix)
+        {
+            int total = matrix.Length;
+            int rows = matrix.GetLength(0);
+            int cols = matrix.GetLength(1);
+            bool[,] visited = new bool[rows, cols];
+            int totalIslands = 0;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    if (matrix[i, j] == 1 && visited[i, j] == false)
+                    {
+                        totalIslands++;
+                        DFS(matrix, i, j, visited);
+                    }
+                }
+            }
+            return totalIslands;
+        }
 
-        //while j <= k:
-        //    if A[j] < mid:
-        //        swap A[i] and A[j]
-        //        i ← i + 1
-        //        j ← j + 1
-        //    else if A[j] > mid:
-        //        swap A[j] and A[k]
-        //        k ← k - 1
-        //    else:
-        //        j ← j + 1
+        private static void DFS(int[,] matrix, int i, int j, bool[,] visited)
+        {
+            int[] rowNbr = { -1, -1, -1, 0, 0, 1, 1, 1 };
+            int[] colNbr = { -1, 0, 1, -1, 1, -1, 0, 1 };
+            visited[i, j] = true;
+            for (int k = 0; k < 8; k++)
+            {
+                if (IsSafe(matrix, i + rowNbr[k], j + colNbr[k], visited) == true)
+                {
+                    DFS(matrix, i + rowNbr[k], j + colNbr[k], visited);
+                }
+            }
+        }
+
+        private static bool IsSafe(int[,] matrix, int row, int col, bool[,] visited)
+        {
+            return (row >= 0 && col >= 0 &&
+                 row < matrix.GetLength(0) &&
+                 col < matrix.GetLength(1) &&
+                 matrix[row, col] == 1 &&
+                 visited[row, col] == false);
+        }
 
         public static int[] DutchFlag(int[] input)
         {
@@ -68,11 +98,11 @@ namespace Algorithms
             int n = input.Length;
             int count = 0;
             Array.Sort(input);
-            for (int i = 0; i < n-2; i++)
+            for (int i = 0; i < n - 2; i++)
             {
                 int left = i + 1;
-                int right = n -1;
-                while (left<right)
+                int right = n - 1;
+                while (left < right)
                 {
                     int sum = input[i] + input[left] + input[right];
                     if (sum >= target)
@@ -81,13 +111,62 @@ namespace Algorithms
                     }
                     else
                     {
-                        count =count+(right-left);
+                        count = count + (right - left);
                         left++;
                     }
                 }
             }
             return count;
 
+        }
+
+        public static int[][] MergeIntervals(int[][] intervals)
+        {
+            //{ 1, 4 },  { 2, 6 }, { 3, 5 }
+            List<int[]> result = new List<int[]>();
+            //Sort all intervals in increasing order of start time.
+            Array.Sort(intervals, JaggedComparer());
+            //Traverse sorted intervals starting from the first interval, 
+            //Do the following for every interval.
+
+            int[] previous = intervals[0];
+            bool overlaps = false;
+            for (int i = 1; i < intervals.Length; i++)
+            {
+                //If the current interval is not the first interval and it overlaps with the previous interval,
+                int[] current = intervals[i];
+                overlaps = current[0] <= previous[1];
+
+                if (overlaps)
+                {
+                    //then merge it with the previous interval.Keep doing it while the interval overlaps with the previous one.         
+                    previous = new int[] { previous[0], Math.Max(previous[1], current[1]) };
+                    if (i == intervals.Length - 1)
+                    {
+                        result.Add(previous);
+                    }
+                }
+                else
+                {
+                    //Otherwise, Add the current interval to the output list of intervals.
+
+                    result.Add(previous);
+                    previous = current;
+                }
+            }
+            if (overlaps == false)
+            {
+                result.Add(previous);
+            }
+            return result.ToArray();
+        }
+
+        private static Comparison<int[]> JaggedComparer()
+        {
+            return new Comparison<int[]>((x, y) =>
+            {
+                return x[0] < y[0] ? -1 : (x[0] > y[0] ? 1 : 0);
+            });
         }
     }
 }
