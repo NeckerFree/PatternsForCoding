@@ -168,5 +168,66 @@ namespace Algorithms
                 return x[0] < y[0] ? -1 : (x[0] > y[0] ? 1 : 0);
             });
         }
+
+        //public static int FindMissingNumber(int[] numbers)
+        //{
+        //    int count = 0;
+        //    int missingValue = -1;
+        //    while (count < numbers.Length)
+        //    {
+        //        int current = numbers[count];
+        //        if (current < numbers.Length && current != count)
+        //        {
+        //            (numbers[count], numbers[current]) = (numbers[current], numbers[count]);
+        //        }
+        //        else
+        //        {
+        //            count++;
+        //        }
+        //    }
+        //    count = 0;
+        //    while (missingValue == -1)
+        //    {
+        //        if (count != numbers[count])
+        //        {
+        //            missingValue = count;
+        //            break;
+        //        }
+        //        count++;
+        //    }
+        //    return missingValue;
+        //}
+
+        public static int FindMissingNumber(int[] numbers)
+        {
+            int count = 0;
+            int arraylength = numbers.Length;
+            int missingValue = arraylength;
+            int current = -1;
+            while (count < arraylength)
+            {
+                current = numbers[count];
+                if (current < arraylength && current != count)
+                {
+                    (numbers[count], numbers[current]) = (numbers[current], numbers[count]);
+                }
+                else
+                {
+                    count++;
+                }
+
+            }
+            count = 0;
+            while (count < numbers.Length)
+            {
+                if (count != numbers[count])
+                {
+                    missingValue = count;
+                    break;
+                }
+                count++;
+            }
+            return missingValue;
+        }
     }
 }

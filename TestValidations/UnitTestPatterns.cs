@@ -1,4 +1,7 @@
 using Algorithms;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
+using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TestValidations
 {
@@ -91,5 +94,23 @@ namespace TestValidations
             int[][] actual = Patterns.MergeIntervals(intervals);
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData(new int[] { 4, 0, 3, 1 }, 2)]
+        [InlineData(new int[] { 8, 3, 5, 2, 4, 6, 0, 1 }, 7)]
+        public void FindMissingNumberCyclicSort(int[] numbers, int expected)
+        {
+            int actual = Patterns.FindMissingNumber(numbers);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void FindMissingNumber()
+        {
+            int[] numbers = { 3, 0, 1 };
+            int actual = Patterns.FindMissingNumber(numbers);
+            Assert.Equal(2, actual);
+        }
+
     }
 }
