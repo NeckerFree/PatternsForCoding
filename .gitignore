@@ -17,3 +17,6 @@
 /Algorithms/obj/project.nuget.cache
 /TestValidations/obj/Debug/net7.0/TestValidations.assets.cache
 /TestValidations/obj/Debug/net7.0/TestValidations.csproj.AssemblyReference.cache
+*.bin
+/.vs/PatternsForCoding/v17/.futdcache.v2
+/.vs/PatternsForCoding/DesignTimeBuild/.dtbcache.v2
