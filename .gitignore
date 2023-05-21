@@ -9,7 +9,6 @@
 *.suo
 *.testlog
 /.vs/PatternsForCoding/v17/TestStore/0/testlog.manifest
-/PatternsForCoding.sln
 /Algorithms/obj/Algorithms.csproj.nuget.dgspec.json
 /Algorithms/obj/Algorithms.csproj.nuget.g.props
 /Algorithms/obj/Debug/net7.0/Algorithms.assets.cache
