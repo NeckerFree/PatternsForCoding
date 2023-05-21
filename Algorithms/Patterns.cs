@@ -1,7 +1,5 @@
-﻿using System.ComponentModel;
-using System.Drawing;
-using System.Net.NetworkInformation;
-using System.Security.Cryptography;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithms
 {
@@ -229,5 +227,35 @@ namespace Algorithms
             }
             return missingValue;
         }
+
+        public static IEnumerable<KeyValuePair<char, int>> GetDuplicateChars(string word)
+        {
+            Dictionary<char, int> map = new Dictionary<char, int>();
+            foreach (char c in word)
+            {
+                if (map.ContainsKey(c))
+                {
+                    map[c] = map[c] + 1;
+                }
+                else
+                {
+                    map.Add(c, 1);
+                }
+            }
+            var result = map.Where(x => x.Value > 1).ToList();
+            return result;
+        }
+
+        public static string ReverseString(string str)
+        {
+            if (str.Length < 2)
+            {
+                return str;
+            }
+
+            return ReverseString(str.Substring(1)) + str[0];
+
+        }
+
     }
 }
