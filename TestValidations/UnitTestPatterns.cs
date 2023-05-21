@@ -1,4 +1,8 @@
 using Algorithms;
+using Microsoft.VisualStudio.TestPlatform.Utilities;
+using System.Collections;
+using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TestValidations
 {
@@ -90,6 +94,58 @@ namespace TestValidations
 
             int[][] actual = Patterns.MergeIntervals(intervals);
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData(new int[] { 4, 0, 3, 1 }, 2)]
+        [InlineData(new int[] { 8, 3, 5, 2, 4, 6, 0, 1 }, 7)]
+        public void FindMissingNumberCyclicSort(int[] numbers, int expected)
+        {
+            int actual = Patterns.FindMissingNumber(numbers);
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void FindMissingNumber()
+        {
+            int[] numbers = { 3, 0, 1 };
+            int actual = Patterns.FindMissingNumber(numbers);
+            Assert.Equal(2, actual);
+        }
+
+        [Theory]
+        [InlineData("Programming")]
+        public void ValidateDuplicateCharacters1(string word)
+        {
+            var expected = new Dictionary<char, int> { { 'r', 2 }, { 'g', 2 }, { 'm', 2 } };
+            IEnumerable<KeyValuePair<char, int>> result = Patterns.GetDuplicateChars(word);
+            Assert.Equal(expected, result);
+
+        }
+        [Theory]
+        [InlineData("Implementation")]
+        public void ValidateDuplicateCharacters2(string word)
+        {
+            var expected = new Dictionary<char, int> { { 'm', 2 }, { 'e', 2 }, { 'n', 2 }, { 't', 2 } };
+            IEnumerable<KeyValuePair<char, int>> result = Patterns.GetDuplicateChars(word);
+            Assert.Equal(expected, result);
+
+        }
+        [Theory]
+        [InlineData("Parangaricutirimicuaro")]
+        public void ValidateDuplicateCharacters3(string word)
+        {
+            var expected = new Dictionary<char, int> { { 'a', 4 }, { 'r', 4 }, { 'i', 4 }, { 'c', 2 }, { 'u', 2 } };
+            IEnumerable<KeyValuePair<char, int>> result = Patterns.GetDuplicateChars(word);
+            Assert.Equal(expected, result);
+
+        }
+        [Fact]
+        public void ValidateReverseString()
+        {
+            string vsal = "qwertyuiop";
+            string actual = Patterns.ReverseString(vsal);
+            Assert.Equal("poiuytrewq", actual);
         }
     }
 }
