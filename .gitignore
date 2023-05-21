@@ -3,8 +3,17 @@
 ################################################################################
 
 *.vsidx
-/.vs/PatternsForCoding/v17/.suo
-/.vs/PatternsForCoding/FileContentIndex/9bd04b66-a56c-44e6-9e1c-d912bf5e93a1.vsidx
-/.vs/PatternsForCoding/FileContentIndex/b654ce03-8979-4ce9-8a6f-6417f687f4bf.vsidx
-/.vs/PatternsForCoding/FileContentIndex/c9e67d7f-a339-45ab-a3b0-ee939ac9c94e.vsidx
-/.vs/PatternsForCoding/FileContentIndex/d5a18e7c-73bb-4072-97a2-2ec27dfd864c.vsidx
+*.cache
+*.props
+*.json
+*.suo
+*.testlog
+/.vs/PatternsForCoding/v17/TestStore/0/testlog.manifest
+/PatternsForCoding.sln
+/Algorithms/obj/Algorithms.csproj.nuget.dgspec.json
+/Algorithms/obj/Algorithms.csproj.nuget.g.props
+/Algorithms/obj/Debug/net7.0/Algorithms.assets.cache
+/Algorithms/obj/project.assets.json
+/Algorithms/obj/project.nuget.cache
+/TestValidations/obj/Debug/net7.0/TestValidations.assets.cache
+/TestValidations/obj/Debug/net7.0/TestValidations.csproj.AssemblyReference.cache
